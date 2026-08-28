@@ -1,0 +1,12 @@
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .brand-logo {
+    height: 23px;
+  }
+}

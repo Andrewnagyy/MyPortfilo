@@ -1,0 +1,23 @@
+<header class="site-header" [class.scrolled]="scrolled()">
+  <a class="brand" href="#top"
+    ><img class="brand-logo" src="logo.jpeg" alt="Andrew Builds logo"
+    ><span><strong>Andrew Builds</strong><small>Ideas → Reality</small></span></a
+  >
+  <nav [class.open]="menuOpen()">
+    <a class="active" href="#top" (click)="menuOpen.set(false)">Home</a
+    ><a href="#work" (click)="menuOpen.set(false)">Work</a
+    ><a href="#process" (click)="menuOpen.set(false)">Process</a
+    ><a href="#about" (click)="menuOpen.set(false)">About</a
+    ><a href="#contact" (click)="menuOpen.set(false)">Contact</a>
+  </nav>
+  <a class="button button-small header-cta" href="#contact">Let's Build <span>→</span></a
+  ><button
+    class="menu-toggle"
+    type="button"
+    aria-label="Toggle navigation"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    ☰
+  </button>
+</header>

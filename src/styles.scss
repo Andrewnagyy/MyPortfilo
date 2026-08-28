@@ -1,1 +1,198 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap');
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #fff;
+}
+/* Improve reading size across the complete site without changing the layout scale. */
+h1{font-size:46px}h2,.build-process-heading h2{font-size:25px}nav a,.text-link,.lede,.about-copy p{font-size:12px}.eyebrow{font-size:9px}.tool-row{font-size:10px}.button{font-size:11px}.project-card h3,.more-grid h3,.process-grid h3,.journey-step h3{font-size:13px}.project-card p:not(.tag),.more-grid p,.process-grid p,.journey-step>p{font-size:10px}.project-card .tag,.card-foot,.more-grid a,.stack-list span,.stack-flow{font-size:9px}.footer-grid p,.footer-grid span,.footer-grid a{font-size:9px}.footer-grid b{font-size:8px}.copyright{font-size:8px}.profile-ring{position:relative;display:flex;align-items:center;justify-content:center;color:#2371df;font-size:20px;font-weight:900}.profile-ring:before{content:'AN'}.profile-ring img{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);border-radius:50%;object-fit:cover}
+app-root {
+  display: block;
+  zoom: 1.25;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #edf2f9;
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+.site-header:hover {
+  box-shadow: 0 8px 25px #153f8212;
+}
+.hero-copy,
+.hero-art,
+.project-card,
+.process-grid article,
+.more-grid article,
+.about-copy {
+  animation: rise-in 0.7s ease both;
+}
+.hero-art {
+  animation-delay: 0.12s;
+}
+.project-card:nth-child(2),
+.process-grid article:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.project-card:hover,
+.more-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px #1f4f9420;
+}
+.project-card,
+.more-grid article {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 28px;
+  padding-top: 58px;
+  padding-bottom: 58px;
+  position: relative;
+}
+.about-copy p {
+  color: #6d7890;
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.highlights span {
+  padding: 8px 10px;
+  border: 1px solid #dce8fa;
+  border-radius: 4px;
+  color: #256ed5;
+  font-size: 8px;
+  font-weight: 700;
+}
+.stack-flow {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding-top: 15px;
+  color: #256ed5;
+  font-size: 10px;
+  font-weight: 700;
+}
+.stack-flow span {
+  padding: 12px 16px;
+  background: #f2f6fd;
+  border: 1px solid #dce8fa;
+  border-radius: 6px;
+}
+.stack-flow b {
+  font-size: 18px;
+}
+.contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.whatsapp-button {
+  background: #20b85a;
+  box-shadow: 0 6px 16px #20b85a3d;
+}
+.whatsapp-button:hover {
+  background: #159447;
+}
+.whatsapp-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  margin-right: 2px;
+}
+.hero-art {
+  animation: float 5s ease-in-out infinite;
+}
+.orbital {
+  animation: orbit 24s linear infinite;
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  50% {
+    transform: translateY(-7px);
+  }
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes particle-drift {
+  50% {
+    opacity: 0.45;
+    transform: translate(5px, -8px);
+  }
+}
+@keyframes stack-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 700px) {
+  app-root {
+    zoom: 1;
+  }
+  .about {
+    display: block;
+  }
+  .about-copy {
+    margin-top: 25px;
+  }
+  .stack-flow {
+    margin-top: 25px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .stack-flow b {
+    font-size: 14px;
+  }
+  .stack-flow span {
+    padding: 9px 10px;
+  }
+  .contact-actions {
+    flex-wrap: wrap;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::after,
+    *::before {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

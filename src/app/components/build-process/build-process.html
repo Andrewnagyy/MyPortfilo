@@ -1,0 +1,46 @@
+<style>
+  .journey { column-gap: 18px; }
+  .journey:before { top: 82px; left: 10%; right: 10%; }
+  .journey-step { padding-left: 12px; padding-right: 12px; }
+  .step-number, .step-phase { display: block; width: 100%; text-align: center; }
+  .step-number { margin-bottom: 12px; }
+  .step-icon { margin-left: auto; margin-right: auto; margin-bottom: 0; }
+  .step-phase { margin-top: 12px; }
+  @media (max-width: 700px) {
+    .journey { padding-left: 28px; }
+    .journey:before { top: 0; bottom: 0; left: 53px; right: auto; }
+    .journey-step { padding-left: 55px; padding-right: 0; text-align: left; }
+    .step-number, .step-phase { width: auto; text-align: left; }
+    .step-number { margin-bottom: 10px; }
+    .step-phase { margin-top: 0; }
+    .step-icon { margin: 0; }
+  }
+</style>
+<section id="process" class="build-process" [class.is-visible]="visible()">
+  <div class="page-width">
+    <div class="build-process-heading">
+      <p class="eyebrow">HOW I BUILD</p>
+      <h2>FROM IDEA → <em>PRODUCTION</em></h2>
+      <p>From the first idea to a production-ready product, I focus on building software that is clean, scalable, and built to last.</p>
+    </div>
+
+    <div class="journey" aria-label="From idea to production journey">
+      @for (step of steps; track step.number) {
+        <article class="journey-step" [style.--step-index]="$index">
+          <div class="journey-line"></div>
+          <div class="step-number">{{ step.number }}</div>
+          <div class="step-icon">{{ step.icon }}</div>
+          <div class="step-phase">{{ step.phase }}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+          <div class="step-tags">@for (technology of step.technologies; track technology) { <span>{{ technology }}</span> }</div>
+        </article>
+      }
+    </div>
+
+    <div class="stack-rail-heading"><p class="eyebrow">THE STACK BEHIND THE BUILD</p></div>
+    <div id="stack" class="stack-rail" aria-label="Technology stack">
+      <div class="stack-rail-track">@for (technology of stack; track technology) { <span><b>+</b>{{ technology }}</span> } @for (technology of stack; track technology + '-repeat') { <span aria-hidden="true"><b>+</b>{{ technology }}</span> }</div>
+    </div>
+  </div>
+</section>

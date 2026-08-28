@@ -1,0 +1,148 @@
+.hero {
+  gap: 48px;
+}
+
+.hero-copy {
+  flex: 0 1 56%;
+  margin-left: 4%;
+}
+
+.hero-art {
+  flex: 1 1 44%;
+}
+
+.hero-actions {
+  display: grid;
+  width: max-content;
+  max-width: 100%;
+  justify-items: start;
+  text-align: left;
+  gap: 22px;
+}
+
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 22px;
+}
+
+.hero-action-row .button {
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.hero-action-row .button:hover {
+  transform: translateY(-3px);
+}
+
+.hero-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #17233f;
+  transition: color .25s ease, transform .25s ease;
+}
+
+.hero-instagram:hover {
+  color: #2371df;
+  transform: translateY(-2px);
+}
+
+.hero-instagram svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.hero-instagram svg circle:last-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+.hero-instagram > span,
+.hero-cv > span {
+  font-size: 15px;
+  line-height: 1;
+  transition: transform .25s ease;
+}
+
+.hero-instagram:hover > span,
+.hero-cv:hover > span {
+  transform: translate(2px, -2px);
+}
+
+.hero-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  gap: 8px;
+  transition: color .25s ease;
+}
+
+@media (max-width: 700px) {
+  .hero-copy {
+    margin-left: 0;
+  }
+
+  .hero-actions {
+    width: max-content;
+    justify-items: start;
+    gap: 25px;
+  }
+
+  .hero-action-row {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .hero-action-row .button {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .hero-art {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.4;
+    transform: scale(.82);
+    transform-origin: center center;
+    align-items: center;
+    animation: hero-art-mobile-float 5s ease-in-out infinite;
+  }
+
+  .hero-art .ab-3d {
+    font-size: 138px;
+  }
+
+  .hero-art .code-chevron.left,
+  .hero-art .code-chevron.right {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero-art .code-chevron.left {
+    left: 5%;
+  }
+
+  .hero-art .code-chevron.right {
+    right: 5%;
+  }
+}
+
+@keyframes hero-art-mobile-float {
+  0%, 100% { transform: scale(.82) translateY(0); }
+  50% { transform: scale(.82) translateY(-7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-action-row .button,
+  .hero-instagram,
+  .hero-cv,
+  .hero-instagram > span,
+  .hero-cv > span {
+    transition: none;
+  }
+}

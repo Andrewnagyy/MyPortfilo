@@ -1,0 +1,36 @@
+<section id="projects" class="more-work">
+    <div class="page-width">
+        <div class="more-heading">
+            <div>
+                <p class="eyebrow">MORE BUILDS</p>
+                <h2>More systems. More things <em>built.</em></h2>
+                <p>A selection of backend systems and digital products I've worked on professionally.</p>
+            </div>
+            <div class="carousel-controls"><button type="button" aria-label="Previous project"
+                    [disabled]="activeIndex() === 0" (click)="move(-1)">←</button><button type="button"
+                    aria-label="Next project" [disabled]="activeIndex() >= projects.length - cardsVisible()"
+                    (click)="move(1)">→</button></div>
+        </div>
+        <div #carousel class="more-carousel" (scroll)="onScroll()">
+            @for (project of projects; track project.number) {
+            <article class="more-slide">
+                <div class="architecture" [class]="project.type"><span class="architecture-label">SYSTEM FLOW</span>@for
+                    (node of project.type === 'commerce' ? ['Products', 'Cart', 'Orders', 'Database'] : project.type ===
+                    'inventory' ? ['Products', 'Inventory', 'Stock Operations', 'Database'] : project.type ===
+                    'pharmacy' ? ['Products', 'Orders', 'Users', 'Management'] : ['Courses', 'Lessons', 'Users', 'Video
+                    Content']; track node) {<span class="architecture-node">{{ node }}</span>@if (!$last) {<i
+                        class="architecture-connector">↓</i>}}</div>
+                <div class="slide-content"><span class="project-number">{{ project.number }}</span>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <div class="technology-pills">@for (technology of project.technologies; track technology) {<span>{{
+                            technology }}</span>}</div><small>PRIVATE / COMMERCIAL PROJECT</small>
+                </div>
+            </article>
+            }
+        </div>
+        <div class="pagination" aria-label="Project slides">@for (project of projects; track project.number) {<button
+                type="button" [class.active]="$index === activeIndex()"
+                [attr.aria-label]="'Go to project ' + project.number" (click)="goTo($index)"></button>}</div>
+    </div>
+</section>

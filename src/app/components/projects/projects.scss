@@ -1,0 +1,34 @@
+.project-image-preview {
+    padding: 0
+}
+.project-image-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-image-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .45s ease, filter .45s ease
+}
+
+.project-image-preview:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #2f70df12;
+    pointer-events: none;
+    transition: background .45s ease
+}
+
+.project-card:hover .project-image-preview img {
+    transform: scale(1.03);
+    filter: saturate(1.05)
+}
+
+.project-card:hover .project-image-preview:after {
+    background: #2f70df22
+}
